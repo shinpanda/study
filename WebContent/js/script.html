@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+/* var add = new Function("x,y", "return x+y;"); */
+/* var add = function(x, y){
+	return x+y;
+}
+ */
+ 
+/*  var add = function(){
+	 x = arguments[0];
+	 y = argumetns[1];
+ } */
+ 
+ var add = function(){
+	 var sum = 0;
+	 for(var i = 0; i<arguments.length; i++)
+		 sum += arguments[i]; 
+	 
+	 return sum;
+ };
+ 
+console.log(add(3,8,10));
+
+
+/* var data = [2,4,5,7,8];
+var entity = {id:1, title:"Hello", writerId:"newlec"}; */
+
+/* for(var i = 0; i<data.length; i++)
+	console.log(data[i]); */
+
+/* for(var i in data) //인덱스를 반환.
+	console.log(data[i]);
+ */
+/*  for(var k in entity) //인덱스를 반환.
+		console.log(entity[k]); */
+	
+	
+/* var ob = {};
+ob.name = "test";
+ob.test = "2020494"
+
+alert(ob.test);
+ */
+/* var json = [
+	{id: "1", title:"tetet", "writer id": "newlec"},
+	{id: "2", title:"good", "writer-id": "2222"}
+];
+
+alert(json[1].title);
+alert(json[1]["writer-id"]);
+alert(json[0]["writer id"]);
+ */
+ 
+/*  var x = 3;
+ undefined
+ var y = new Number(3);
+ undefined
+ alert(x===y);
+ undefined
+ alert(x==y);
+ undefined
+ alert(3+4.5); //7.5
+ undefined
+ alert(3+"4"); //34
+ undefined
+ alert(3.5-"2"); //1.5 빼기는 숫자로 바꿔줌
+ undefined
+  */
+ 
+/*  var data = eval("var x=3; x++;");
+ alert(x);
+ 
+ var data = eval("[2,4,6]");
+ alert(data[2]);
+  */
+/*  var data = JSON.parse("[2,4,6]");
+ alert(data[1]);
+ 
+ var data = eval('({id: "1", title:"tetet", "writer id": "newlec"})');
+alert(data.title); */
+/* var data =  JSON.parse('{"id": 1, "title":"tetet", "writer id": "newlec"}');
+alert(typeof data.title);
+alert(typeof data.id); */
+ /* json 객체 파싱할 때는 소괄호로 한 번 더 감싸주어야 함 */
+ 
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
