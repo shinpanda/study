@@ -4,6 +4,37 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+function f1(){
+	var a = 1;
+	
+	return function f2(){ //클로저
+		return a;
+	}
+}
+
+var f = f1();
+var a = f(); // a가 참조되고 있어 죽지 못함...
+alert(a); // a = 1;
+a = null; // 이래야 f2->f1 쥬금
+
+
+/* function f1(){
+	a = 1;
+}
+function f2(){
+	alert(a);
+}
+
+f1();
+f2(); */
+
+/* function f1(){
+	var a = 1;
+}
+
+
+f1();
+alert(a); */
 
 /* var add = new Function("x,y", "return x+y;"); */
 /* var add = function(x, y){
@@ -16,7 +47,8 @@
 	 y = argumetns[1];
  } */
  
- var add = function(){
+
+ /* var add = function(){
 	 var sum = 0;
 	 for(var i = 0; i<arguments.length; i++)
 		 sum += arguments[i]; 
@@ -24,7 +56,7 @@
 	 return sum;
  };
  
-console.log(add(3,8,10));
+console.log(add(3,8,10)); */
 
 
 /* var data = [2,4,5,7,8];
