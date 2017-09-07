@@ -21,12 +21,16 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") != null) {
-			response.sendRedirect(request.getHeader("Referer"));
+			if(request.getHeader("Referer") == null || request.getHeader("Referer").indexOf(request.getRequestURI()) > 0)
+				response.sendRedirect("../index");
+			else {
+				response.sendRedirect(request.getHeader("Referer"));
+			}
 		}
-		else
+		else {
 			request.getSession().setAttribute("returnURI", request.getHeader("Referer"));
 			request.getRequestDispatcher("/WEB-INF/views/member/login.jsp").forward(request, response);
-		
+		}
 	}
 	
 	@Override
@@ -38,9 +42,9 @@ public class LoginController extends HttpServlet {
 		
 		Member member = memberDao.get(id);
 		if(member == null)
-			response.sendRedirect("login?error");
+			response.sendRedirect("login?error=1");
 		else if(!member.getPwd().equals(pwd))
-			response.sendRedirect("login?error");
+			response.sendRedirect("login?error=1");
 		else
 		{
 			HttpSession session = request.getSession(); 

@@ -6,7 +6,7 @@
 	<header id="header">
 	<div class="content-container">
 		<h1 id="logo">
-			<a href="${p}/index.html"><img src="${p}/images/logo.png" alt="뉴렉처사이트" /></a>
+			<a href="${p}/index"><img src="${p}/images/logo.png" alt="뉴렉처사이트" /></a>
 		</h1>
 		<section>
 		<h2 class="hidden">머릿말</h2>
@@ -28,13 +28,20 @@
 		<h1 class="hidden">회원 메뉴</h1>
 		<ul>
 			<li><a href="#">Home</a></li>
-			<li><a href="${p}/member/login">로그인</a></li>
+			<li>
+			<c:if test="${empty sessionScope.id}">
+				<a href="${p}/member/login">로그인</a>
+			</c:if>
+			<c:if test="${not empty sessionScope.id}">
+				<a href="${p}/member/logout">로그아웃</a>
+			</c:if>
+			</li>
 			<li><a href="${p}/member/agree">회원가입</a></li>
 		</ul>
 		</nav> <nav id="customer-menu" class="hr-list">
 		<h1 class="hidden">고객메뉴</h1>
 		<ul>
-			<li><a href="#"><img src="${p}/images/txt-mypage.png"
+			<li><a href="${p}/member/home"><img src="${p}/images/txt-mypage.png"
 					alt="마이페이지" /></a></li>
 			<li><a href="${p}/customer/notice-list"><img src="${p}/images/txt-customer.png"
 					alt="고객센터" /></a></li>
