@@ -136,6 +136,7 @@ public class JdbcNoticeDao implements NoticeDao {
 				n.setTitle(rs.getString("title"));
 				n.setContent(rs.getString("content"));
 				n.setWriterId(rs.getString("writerId"));
+				n.setFileName(rs.getString("fileName"));
 				n.setRegDate(rs.getDate("regDate"));
 				n.setHit(rs.getInt("hit"));
 			}
@@ -157,7 +158,7 @@ public class JdbcNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public int update(String id, String title, String content) {
+	public int update(String id, String title, String content, String fileName) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -165,13 +166,14 @@ public class JdbcNoticeDao implements NoticeDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "update Notice set title  = ?, content  = ? where id = ?";
+			String sql = "update Notice set title  = ?, content  = ?, fileName = ? where id = ?";
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
 			st.setString(3, id);
+			st.setString(4, fileName);
 
 			/*st.setString(1, "%"+title+"%");*/
 
@@ -194,7 +196,7 @@ public class JdbcNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public int insert(String title, String content) {
+	public int insert(String title, String content, String fileName) {
 		int result=0;
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -202,13 +204,14 @@ public class JdbcNoticeDao implements NoticeDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "INSERT INTO Notice(id, title, content, writerId) VALUES ((select IFNULL(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
+			String sql = "INSERT INTO Notice(id, title, content, writerId, fileName) VALUES ((select IFNULL(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?, ?)";
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
 			st.setString(3, "newlec");
+			st.setString(4, fileName);
 
 			/*st.setString(1, "%"+title+"%");*/
 

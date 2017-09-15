@@ -17,8 +17,6 @@
 	<div id="body">
 		<div class="content-container clearfix">
 			<jsp:include page="../inc/aside.jsp" />
-
-
 			<main id="main">
 			<h2>공지사항</h2>
 
@@ -32,15 +30,15 @@
 			</div>
 			<br />
 
-			<form method="post">
+			<form method="post" enctype="multipart/form-data">
 				<table class="table">
 					<tr>
-						<th>제목</th>
-						<td colspan="3"><input name="title"/></a></td>
+						<th>제목 왜 안바꿔지냐...</th>
+						<td colspan="3"><input name="title" /></td>
 					</tr>
 					<tr>
 						<th>첨부파일</th>
-						<td colspan="3"></td>
+						<td colspan="3"><input type="file" name="file" /></td>
 					</tr>
 					<tr>
 						<td colspan="4"><textarea name="content"></textarea></td>
@@ -50,11 +48,10 @@
 					<input type="submit" class="btn btn-default" value="등록" /> <a
 						href="list" class="btn btn-default">취소</a>
 				</div>
-				</form>
-		</div>
+			</form>
 
 		</main>
-	</div>
+		</div>
 	</div>
 	<jsp:include page="../../inc/footer.jsp" />
 	<!-- <div id="floating">

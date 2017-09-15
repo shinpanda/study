@@ -9,12 +9,13 @@ public class Notice {
 	private String writerId;
 	private Date regDate;
 	private int hit;
+	private String fileName;
 
 	public Notice() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Notice(String id, String title, String content, String writerId, Date regDate, int hit) {
+	public Notice(String id, String title, String content, String writerId, Date regDate, int hit, String fileName) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -22,6 +23,7 @@ public class Notice {
 		this.writerId = writerId;
 		this.regDate = regDate;
 		this.hit = hit;
+		this.fileName = fileName;
 	}
 
 	public String getId() {
@@ -70,6 +72,14 @@ public class Notice {
 
 	public void setWriterId(String writerId) {
 		this.writerId = writerId;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }

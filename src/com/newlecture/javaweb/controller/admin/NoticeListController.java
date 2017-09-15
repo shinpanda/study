@@ -26,7 +26,7 @@ public class NoticeListController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String _title = request.getParameter("title");
 		String _page = request.getParameter("p");
-		
+
 		int page = 1;
 		if (_page != null && !(_page.equals("")))
 			page = Integer.parseInt(_page);

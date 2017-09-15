@@ -107,7 +107,7 @@
 				</div>
 				1/1 pages
 			</div>
-			<a class="btn btn-default" href="${p}/admin/notice/reg">글쓰기</a> <a href=""
+			<a class="btn btn-default" href="reg">글쓰기</a> <a href=""
 				class="btn-img btn-cancel">취소</a>
 		</div>
 
